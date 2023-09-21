@@ -202,25 +202,27 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
           style={styles.searchInput}
           autoFocus={true}
         />
-        <FlatList
-          data={filteredPlayers}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.playerOption}
-              onPress={() => {
-                const selectedPlayer = item;
-                setSelectedPlayer(selectedPlayer);
-    
-                handleGuessSubmit(selectedPlayer);
-                setSearchQuery('');
-              }}
-            >
-              <Text style={styles.playerOptionText}>{item.name}</Text>
-            </TouchableOpacity>
-          )}
-          style={{ flex: 1 }} 
-        />
+        <ScrollView style={styles.searchList}>
+          <FlatList
+            data={filteredPlayers}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.playerOption}
+                onPress={() => {
+                  const selectedPlayer = item;
+                  setSelectedPlayer(selectedPlayer);
+
+                  handleGuessSubmit(selectedPlayer);
+                  setSearchQuery('');
+                }}
+              >
+                <Text style={styles.playerOptionText}>{item.name}</Text>
+              </TouchableOpacity>
+            )}
+            horizontal={false}
+          />
+        </ScrollView>
       </View>
     ) : null;
   };
@@ -333,9 +335,7 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
               </View>
             ))}
           </View>
-          <View style={styles.playerDropdown}>
-            <PlayerDropdown />
-          </View>
+          <PlayerDropdown />
         </View>      
       )}
     </View>
@@ -410,14 +410,16 @@ const styles = StyleSheet.create({
   },
   playerDropdown: {
     backgroundColor: 'white',
-    elevation: 5,
-    borderWidth: 1,
+    borderRadius: 4, // Add rounded corners
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)', // Add a subtle shadow
+    border: '1px solid #ccc', // Add a border
     maxHeight: 400,
     width: 200,
     overflowY: 'auto',
     marginTop: 20,
     marginBottom: 200,
-    marginLeft: 200, 
+    marginLeft: 200,
+    overflow: 'hidden'
   },
   searchInput: {
     borderWidth: 1,
@@ -425,16 +427,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 10,
     borderRadius: 8,
-  },
-  playerOption: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: 'lightgray',
-  },
-  playerOptionText: {
-    fontSize: 16,
-    color: 'black',
   },
   redSquare: {
     backgroundColor: 'red',
@@ -535,7 +527,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 'bold',
-  }
+  },
+  searchList: {
+    flex: 1,
+    backgroundColor: '#white',
+  },
+  playerOption: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0', 
+  },
+  playerOptionText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
 });
 
 export default PlayerGrid;
