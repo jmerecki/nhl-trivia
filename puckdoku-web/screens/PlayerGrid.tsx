@@ -177,7 +177,7 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
     );
   };
 
-  
+  // Delete token and navigate to login screen
   const handleLogout = async () => {
     try {
       await AsyncStorage.removeItem('token');
@@ -228,6 +228,7 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
         </View>;
   };
   
+  // Reset game states
   const resetGame = () => {
     fetchPlayerData().then(() => {
       setSquareColors(
@@ -238,7 +239,6 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
       setClickedSquare(null);
       setGameOver(false);
       setScore(0);
-  
       setGuessedPlayers(
         Array(3)
           .fill(null)
@@ -413,9 +413,9 @@ const styles = StyleSheet.create({
   },
   playerDropdown: {
     backgroundColor: 'white',
-    borderRadius: 4, // Add rounded corners
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)', // Add a subtle shadow
-    border: '1px solid #ccc', // Add a border
+    borderRadius: 4,
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)', 
+    border: '1px solid #ccc',
     maxHeight: 400,
     width: 200,
     overflowY: 'auto',
@@ -426,9 +426,9 @@ const styles = StyleSheet.create({
   },
   hiddenDropdown: {
     backgroundColor: 'white',
-    borderRadius: 4, // Add rounded corners
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)', // Add a subtle shadow
-    border: '1px solid #ccc', // Add a border
+    borderRadius: 4, 
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+    border: '1px solid #ccc',
     maxHeight: 400,
     width: 200,
     overflowY: 'auto',
