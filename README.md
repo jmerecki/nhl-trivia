@@ -1,0 +1,48 @@
+# puckdoku project
+
+NHL Trivia game
+
+# Installation
+1. Clone the repository to your local machine
+   
+   ```
+   git clone https://github.com/jmerecki/puckdoku.git
+   ```
+
+2. Navigate to the puckdoku-api directory
+
+   ```
+   cd puckdoku/puckdoku-api
+   ```
+
+3. Install the dependencies for the Express server
+   ```
+   npm i
+   ```
+
+5. Navigate to the puckdoku-web directory
+   ```
+   cd ../puckdoku-web
+   ```
+
+7. Install the dependencies for the React Native app
+   ```
+   npm i
+   ```
+
+# To Play
+
+1. Navigate to the puckdoku-web directory and run
+   ```
+   npm start
+   ```
+2. Navigate to the puckdoku-api directory and run
+   ```
+   npm start
+   ```
+3. Click 'w' to run the app in a web browser
+
+   A browser should appear running the app on port 19006
+
+
+   
