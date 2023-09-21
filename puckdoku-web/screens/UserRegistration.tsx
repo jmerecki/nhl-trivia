@@ -22,6 +22,15 @@ const UserRegistrationScreen: React.FC = () => {
       return;
     }
 
+    if(username.length == 0 ){
+      alert('Username field cannot be empty');
+      return;
+    }
+    else if(password.length == 0){
+      alert('Password field cannot be empty');
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:3001/users/create', {
         method: 'POST',
