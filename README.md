@@ -45,7 +45,7 @@ NHL Trivia game
    A browser should appear running the app on port 19006
 
 
-* Note: The game does not check if the selected player played in at least one game with the player on the outside of the grid, it checks if the selected player was on the same team during the same season as the player on the outside. I understand there can be some edge cases, however for the sake of simplicity I decided to go with the route that I chose. Please reach out for any questions *
+* Note: The game does not check specificlly if the selected player played in at least one game with the player on the outside of the grid -the ame checks if the selected player was on the same team during the same season as the players on the outside. I understand there can be  edge cases, however for the sake of time and simplicity I decided to go with the route that I chose. Please reach out for any questions *
 
 
    
