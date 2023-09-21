@@ -1,6 +1,4 @@
-# puckdoku project
-
-NHL Trivia game
+# NHL Trivia game
 
 # Installation
 1. Clone the repository to your local machine
