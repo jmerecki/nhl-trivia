@@ -179,6 +179,7 @@ async function getPlayerName(playerId) {
   }
 }
 
+// Db call to get valid answer
 async function getAnswer(player1Name, player2Name) {
   const connection = await getDbConnection();
   

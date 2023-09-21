@@ -1,13 +1,5 @@
 const { getDbConnection } = require('../db/db');
 
-
-const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'puckdoku_merecki',
-};
-
 // Db call to get user stats based on username
 async function getUserStats(username) {
     try {
