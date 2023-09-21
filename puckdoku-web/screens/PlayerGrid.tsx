@@ -273,9 +273,8 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
             <View style={styles.helpTextContainer}>
                 <Text style={styles.boldText}>How to play: </Text>
                 <Text style={styles.helpText}>
-                Guess a player who has been teammates (at 
-                least NHL 1GP) {'\n'}with the corrsponding players outside the grid. {'\n'}
-                Player selection is limited to current active NHL players. An example {'\n'}
+                {'\n'}Guess a player who has been teammates with the corrsponding players outside the grid at one point in their career. 
+                Player selection is limited to active NHL players.{'\n'}{'\n'}An example 
                 correct answer can be seen in the console after each guess.
                 </Text>
             </View>
@@ -352,7 +351,9 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'center',
-    padding: 20,
+    padding: 40,
+    marginLeft:100
+  
   },
   playerNamesTop: {
     flexDirection: 'row',
@@ -511,8 +512,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   helpTextContainer: {
-    width: '80%',
-    alignSelf: 'center',
+    width: '60%',
+    alignSelf: 'flex-start',
     marginRight: 20
   },
   helpText: {
