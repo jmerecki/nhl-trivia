@@ -319,7 +319,7 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
                         : null
                     ]}
                     onPress={() => {
-                      // Check if the square is white (not red or green) before handling the press
+                      // Check if the square hasn't been guessed yet
                       if (squareColors[rowIndex][colIndex] === 'white') {
                         handleSquarePress(rowIndex, colIndex);
                       }
