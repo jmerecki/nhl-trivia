@@ -32,11 +32,11 @@ NHL Trivia game
 
 # To Play
 
-1. Navigate to the puckdoku-web directory and run
+1. Navigate to the puckdoku-api directory and run
    ```
    npm start
    ```
-2. Navigate to the puckdoku-api directory and run
+2. Navigate to the puckdoku-web directory and run
    ```
    npm start
    ```
