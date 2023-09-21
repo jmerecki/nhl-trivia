@@ -224,7 +224,8 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
           />
         </ScrollView>
       </View>
-    ) : null;
+    ) : <View style={styles.hiddenDropdown}>
+        </View>;
   };
   
   const resetGame = () => {
@@ -303,41 +304,43 @@ const PlayerGrid: React.FC<PlayerGridProps> = ({ route }) => {
             ))}
           </View>
           {/* Grid with players on left side */}
-          <View style={styles.grid}>
-            {playerData.slice(3, 6).map((player, rowIndex) => (
-              <View key={rowIndex} style={styles.row}>
-                <Text key={rowIndex} style={styles.playerNameLeft}>
-                  {player.name}
-                </Text>
-                {[0, 1, 2].map((_, colIndex) => (
-                  <TouchableOpacity
-                    key={colIndex}
-                    style={[
-                      styles.square,
-                      squareColors[rowIndex][colIndex] === 'red'
-                        ? styles.redSquare
-                        : squareColors[rowIndex][colIndex] === 'green'
-                        ? styles.greenSquare
-                        : null
-                    ]}
-                    onPress={() => {
-                      // Check if the square hasn't been guessed yet
-                      if (squareColors[rowIndex][colIndex] === 'white') {
-                        handleSquarePress(rowIndex, colIndex);
-                      }
-                    }}
-                  >
-                    <Text style={styles.selectedPlayerText}>
-                      {guessedPlayers[rowIndex][colIndex] || 'Select a player'}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            ))}
+          <View style={styles.gridAndDropdown}> 
+            <View style={styles.grid}>
+              {playerData.slice(3, 6).map((player, rowIndex) => (
+                <View key={rowIndex} style={styles.row}>
+                  <Text key={rowIndex} style={styles.playerNameLeft}>
+                    {player.name}
+                  </Text>
+                  {[0, 1, 2].map((_, colIndex) => (
+                    <TouchableOpacity
+                      key={colIndex}
+                      style={[
+                        styles.square,
+                        squareColors[rowIndex][colIndex] === 'red'
+                          ? styles.redSquare
+                          : squareColors[rowIndex][colIndex] === 'green'
+                          ? styles.greenSquare
+                          : null
+                      ]}
+                      onPress={() => {
+                        // Check if the square hasn't been guessed yet
+                        if (squareColors[rowIndex][colIndex] === 'white') {
+                          handleSquarePress(rowIndex, colIndex);
+                        }
+                      }}
+                    >
+                      <Text style={styles.selectedPlayerText}>
+                        {guessedPlayers[rowIndex][colIndex] || 'Select a player'}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              ))}          
+            </View>
+            <PlayerDropdown />
           </View>
-          <PlayerDropdown />
         </View>      
-      )}
+      )}  
     </View>
     </ScrollView>
   );  
@@ -418,8 +421,22 @@ const styles = StyleSheet.create({
     overflowY: 'auto',
     marginTop: 20,
     marginBottom: 200,
-    marginLeft: 200,
-    overflow: 'hidden'
+    marginLeft: 50,
+    overflow: 'hidden',
+  },
+  hiddenDropdown: {
+    backgroundColor: 'white',
+    borderRadius: 4, // Add rounded corners
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)', // Add a subtle shadow
+    border: '1px solid #ccc', // Add a border
+    maxHeight: 400,
+    width: 200,
+    overflowY: 'auto',
+    marginTop: 20,
+    marginBottom: 200,
+    marginLeft: 50,
+    overflow: 'hidden',
+    opacity: 0
   },
   searchInput: {
     borderWidth: 1,
@@ -542,6 +559,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#333',
+  },
+  gridAndDropdown: {
+    flexDirection: 'row',
   },
 });
 
