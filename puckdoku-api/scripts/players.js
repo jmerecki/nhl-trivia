@@ -1,6 +1,6 @@
 const axios = require('axios');
 const mysql = require('mysql2/promise');
-const { getDbConnection } = require('../db/db'); // Adjust the path as needed
+const { getDbConnection } = require('../db/db');
 
 
 const API_ENDPOINT = 'https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster';
