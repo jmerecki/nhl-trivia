@@ -393,7 +393,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 }, 
     shadowOpacity: 0.8, 
     shadowRadius: 4,
-    transition: 'background-color 0.8s',
   },
   input: {
     width: 120, 
@@ -415,11 +414,8 @@ const styles = StyleSheet.create({
   playerDropdown: {
     backgroundColor: 'white',
     borderRadius: 4,
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)', 
-    border: '1px solid #ccc',
     maxHeight: 400,
     width: 200,
-    overflowY: 'auto',
     marginTop: 20,
     marginBottom: 200,
     marginLeft: 50,
@@ -428,11 +424,8 @@ const styles = StyleSheet.create({
   hiddenDropdown: {
     backgroundColor: 'white',
     borderRadius: 4, 
-    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
-    border: '1px solid #ccc',
     maxHeight: 400,
     width: 200,
-    overflowY: 'auto',
     marginTop: 20,
     marginBottom: 200,
     marginLeft: 50,
@@ -514,7 +507,7 @@ const styles = StyleSheet.create({
   helpTextContainer: {
     width: '60%',
     alignSelf: 'flex-start',
-    marginRight: 20
+    marginRight: 10
   },
   helpText: {
     fontSize: 16,
